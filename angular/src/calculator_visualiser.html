@@ -16,35 +16,24 @@
         #creatureInput {
             width: 445px;
         }
+        #playerEntryTable {
+            display: none
+        }
     </style>
 
 </head>
 
 <body>
 
-<div ng-app="entryTables" ng-controller="tableCtrl">
+<div ng-app="calculator" ng-controller="calculatorCtrl">
 
-    <h2> Creatures </h2>
+    <div id="creatureEntryTable" ng-include="'creature_table.htm'" ng-controller="creatureTableCtrl"></div>
 
-    <table>
-        <tr>
-            <th> Name </th>
-            <th> Number </th>
-            <th> No. of Groups </th>
-        </tr>
-        <tr ng-repeat="x in creatures">
-            <td>{{x.name}}</td>
-            <td><input type="number" ng-model="x.number"></td>
-            <td><input type="number" ng-model="x.n_groups"></td>
-        </tr>
-    </table>
-    <input id=creatureInput type="text" ng-model="newName">
-    <button ng-click="addCreature()"> + </button><br>
-
-    <button ng-click=""> Proceed </button>
+    <div id="playerEntryTable" ng-include="'player_table.htm'" ng-controller="playerTableCtrl"></div>
 
 </div>
 
+<script src="calculator_controller.js"></script>
 <script src="table_controller.js"></script>
 
 </body>

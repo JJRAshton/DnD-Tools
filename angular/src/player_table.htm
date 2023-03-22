@@ -1,0 +1,15 @@
+
+<h2> Players </h2>
+
+<table>
+    <tr>
+        <th> Name </th>
+    </tr>
+    <tr ng-repeat="x in $parent.players">
+        <td>{{x}}</td>
+    </tr>
+</table>
+<input id=playerInput type="text" ng-model="$parent.newName">
+<button ng-click="$parent.addPlayer()"> + </button><br>
+<br>
+<button ng-click=""> Proceed </button>
