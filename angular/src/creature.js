@@ -26,9 +26,12 @@ class Creature {
 
 // Class storing all attributes of a creature group
 class CreatureGroup {
-    constructor(creatureStats, groupSize) {
+    constructor(groupName, creatureStats, groupSize) {
         this.stats = creatureStats
         this.groupSize = groupSize
+        this.name = groupName
+
+        this.initRoll = 0
 
         this.members = {}
 

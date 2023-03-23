@@ -1,0 +1,14 @@
+<h2> Creatures </h2>
+
+<table>
+    <tr>
+        <th> Group Name </th>
+        <th> Dex Mod </th>
+        <th> Initiative Roll </th>
+    </tr>
+    <tr ng-repeat="x in $parent.creatureGroups">
+        <td>{{x.name}}</td>
+        <td>{{x.stats.DEX}}</td>
+        <td><input type="number" ng-model="x.initRoll"></td>
+    </tr>
+</table>

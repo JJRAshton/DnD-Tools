@@ -1,10 +1,5 @@
 // Class containing all data manipulation functions
 class CalculatorFunctions {
-    constructor(inputData) {
-        this.entryData = inputData
-        this.data = {}
-    }
-
     // Method to return stats object of a creature type
     returnStats(creatureName) {
         let stats = {
@@ -30,8 +25,11 @@ class CalculatorFunctions {
     }
 
     // Method to divide the creatures into their respective groups
-    allocateGroups() {
-        for (let creatureRow in this.entryData) {
+    allocateCreatureGroups(entryData) {
+        let data = {}
+
+        for (let creatureRow of entryData) {
+
             const name = creatureRow.name
             const stats = this.returnStats(name)
 
@@ -39,12 +37,18 @@ class CalculatorFunctions {
             let nGroups = creatureRow.n_groups
 
             let groupSizes = this.calcGroupSize(number, nGroups)
-            let i = 0
-            for  (let groupSize in groupSizes) {
-                let groupName = name + i.toString()
-                this.data[groupName] = new creatureGroup(stats, groupSize)
-                i++
+            if (length(groupSizes) > 1) {
+                let i = 1
+                for (let groupSize in groupSizes) {
+                    let groupName = name + i.toString()
+                    data[groupName] = new CreatureGroup(groupName, stats, groupSize)
+                    i++
+                }
+            } else {
+                data[name] = new CreatureGroup(name, stats, 1)
             }
         }
+
+        return data
     }
 }

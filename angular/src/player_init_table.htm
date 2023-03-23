@@ -3,12 +3,12 @@
 <table>
     <tr>
         <th> Name </th>
+        <th> Initiative Roll </th>
     </tr>
     <tr ng-repeat="x in $parent.players">
-        <td>{{x}}</td>
+        <td>{{x.name}}</td>
+        <td><input type="number" ng-model="x.initRoll"></td>
     </tr>
 </table>
-<input id=playerInput type="text" ng-model="$parent.newName">
-<button ng-click="$parent.addPlayer()"> + </button><br>
 <br>
 <button ng-click="$parent.proceed()"> Proceed </button>

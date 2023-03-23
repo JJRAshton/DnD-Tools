@@ -16,7 +16,7 @@
         #creatureInput {
             width: 445px;
         }
-        #playerEntryTable {
+        #playerEntryTable, #playerInitTable, #creatureInitTable, #summaryScreen {
             display: none
         }
     </style>
@@ -31,8 +31,15 @@
 
     <div id="playerEntryTable" ng-include="'player_table.htm'" ng-controller="playerTableCtrl"></div>
 
+    <div id="creatureInitTable" ng-include="'creature_init_table.htm'"></div>
+    <div id="playerInitTable" ng-include="'player_init_table.htm'"></div>
+
+    <div id="summaryScreen" ng-include="'summary.htm'"></div>
+
 </div>
 
+<script src="creature.js"></script>
+<script src="functions.js"></script>
 <script src="calculator_controller.js"></script>
 <script src="table_controller.js"></script>
 

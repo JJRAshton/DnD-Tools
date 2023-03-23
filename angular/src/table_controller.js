@@ -3,7 +3,6 @@ calcApp.controller('creatureTableCtrl', function($scope) {
     $scope.newName = ''
 
     $scope.addCreature = function() {
-        console.log($scope.newName)
         $scope.creatures.push({
             name: $scope.newName,
             number: 0,
@@ -14,6 +13,8 @@ calcApp.controller('creatureTableCtrl', function($scope) {
     $scope.proceed = function() {
         document.getElementById("creatureEntryTable").style.display = "none"
         document.getElementById("playerEntryTable").style.display = "block"
+
+        $scope.processCreatureGroups($scope.creatures)
     }
 });
 
@@ -26,6 +27,10 @@ calcApp.controller('playerTableCtrl', function($scope) {
     }
 
     $scope.proceed = function() {
+        document.getElementById("playerEntryTable").style.display = "none"
+        document.getElementById("creatureInitTable").style.display = "block"
+        document.getElementById("playerInitTable").style.display = "block"
 
+        $scope.processPlayers($scope.players)
     }
 });
